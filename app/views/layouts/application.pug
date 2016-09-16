@@ -1,0 +1,31 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    block title
+      title Default title
+    if process.env.NODE_ENV == 'PRODUCTION'
+      link(href='/style.css', rel='stylesheet')
+  body
+    nav.navbar.navbar-fixed-top.navbar-dark.bg-inverse
+      a.navbar-brand(href='#') FIRST
+      ul.nav.navbar-nav
+        li.nav-item.active
+          a.nav-link(href='#')
+            | Second
+            span.sr-only (current)
+        li.nav-item
+          a.nav-link(href='#') Third
+        li.nav-item
+          a.nav-link(href='#') Last
+    .container
+      block content
+
+  if process.env.NODE_ENV != 'PRODUCTION'
+    script(src='http://localhost:3030/client.js')
+  else
+    script(src='/client.js')
